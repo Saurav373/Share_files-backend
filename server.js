@@ -19,7 +19,7 @@ const __dirname = dirname(__filename);
 const __uploadsDir = join(__dirname, 'uploads');
 
 
-if (!fs.existsSync(__uploadsDir)){
+if (!fs.existsSync(__uploadsDir)) {
     fs.mkdirSync(__uploadsDir)
 }
 
@@ -31,6 +31,8 @@ app.use(express.static(__uploadsDir));
 
 connectToMongoDB()
 deleteFiles(__dirname)
+
+
 
 app.post('/upload', upload.single('file'), uploadFile)
 app.post('/fileinfo', FileInfo)
