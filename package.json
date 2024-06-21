@@ -5,6 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "build": "node server.js",
     "start": "node server.js"
   },
   "dependencies": {
