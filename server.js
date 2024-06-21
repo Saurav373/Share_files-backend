@@ -6,9 +6,9 @@ import fs from 'fs'
 import { fileURLToPath } from 'url';
 import { connectToMongoDB } from './DB/db.js'
 import { upload } from './Controllers/multerConfig.js'
-import { uploadFile } from './Routes/uploadFILe.js'
+import { uploadFile } from './Routes/uploadFile.js'
 import { FileInfo } from './Routes/FileInfo.js'
-import { DownloadFile } from './Routes/downloadFile.js';
+import { DownloadFile } from './Routes/DownloadFile.js';
 import deleteFiles from './Controllers/DeleteFiles.js';
 
 const app = express()
@@ -35,7 +35,6 @@ deleteFiles(__dirname)
 app.post('/upload', upload.single('file'), uploadFile)
 app.post('/fileinfo', FileInfo)
 app.get('/download/:uuid', DownloadFile)
-
 
 app.listen(PORT, () => {
     console.log('Server Started succesfully :' + PORT);
