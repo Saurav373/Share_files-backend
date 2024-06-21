@@ -8,8 +8,6 @@ const deleteExpiredFiles = (__dirname) => {
     schedule.scheduleJob('0 * * * *', async () => {
 
         const uploadDir = path.join(__dirname, 'uploads'); 
-        console.log('Upload dir : ',uploadDir);
-
         try {
             const files = await File.find({
                 createdAt: { $lt: new Date(Date.now() - 1000*60*60*48) } 
